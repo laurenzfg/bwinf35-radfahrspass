@@ -15,7 +15,7 @@ public:
 private:
     FILE * Strecke;
     void exep(); 	   // Wird bei nicht Befahrbarkeit aufgerufen.
-    int beschleunigen; // Speichert die Anzahl der Beschleunigungen.
+    int Beschleunigungen; // Speichert die Anzahl der Beschleunigungen.
 };
 
 #endif // FAHRRADFAHRER_H
