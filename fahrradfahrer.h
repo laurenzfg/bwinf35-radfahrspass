@@ -9,13 +9,13 @@ class Fahrradfahrer
 {
 public:
     Fahrradfahrer(std::string Datei);
-	~Fahrradfahrer();
+		~Fahrradfahrer();
     void ablaufen();
     void fahren();
 private:
     FILE * Strecke;
-    void exep(); 	   // Wird bei nicht Befahrbarkeit aufgerufen.
-    int Beschleunigungen; // Speichert die Anzahl der Beschleunigungen.
+    void exep(); 	   				// Wird bei nicht Befahrbarkeit aufgerufen.
+    int Beschleunigungen; 	// Speichert die Anzahl der Beschleunigungen.
 };
 
 #endif // FAHRRADFAHRER_H

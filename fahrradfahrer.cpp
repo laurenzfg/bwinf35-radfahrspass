@@ -2,7 +2,7 @@
 
 Fahrradfahrer::Fahrradfahrer(std::string Datei)
 {
-	// Datei mit Strecke öffnen
+		// Datei mit Strecke öffnen
     Strecke=fopen(Datei.c_str(),"r");
     if(Strecke==NULL)
     {
@@ -12,7 +12,7 @@ Fahrradfahrer::Fahrradfahrer(std::string Datei)
 
 Fahrradfahrer::~Fahrradfahrer()
 {
-	fclose(Strecke); 
+		fclose(Strecke); 
 }
 
 void Fahrradfahrer::ablaufen()
@@ -23,10 +23,10 @@ void Fahrradfahrer::ablaufen()
     int geschwindigkeit_minimal=0;	
     Beschleunigungen=0; 
 				
-	// Solange noch Streckenabschnitt eingelesen werden
+		// Solange noch Streckenabschnitt eingelesen werden
     while((gelesen=fread(&Streckenabschnitt,1,1,Strecke))==1) 
     {
-		// Geschwindikeiten werden entsprechend des eingelesenen Streckenteils angepasst
+				// Geschwindikeiten werden entsprechend des eingelesenen Streckenteils angepasst
         if(Streckenabschnitt=='/')
         {
             geschwindigkeit_maximal--;
@@ -43,10 +43,10 @@ void Fahrradfahrer::ablaufen()
             geschwindigkeit_minimal++;
         }
 		
-		// Wenn die schnelle Geschwindikeit nicht mehr ausreicht zum Befahren der Strecke, breche ab.
+				// Wenn die schnelle Geschwindikeit nicht mehr ausreicht zum Befahren der Strecke, breche ab.
         if(geschwindigkeit_maximal<0) this->exep();
 
-		//Wenn die langsame Geschwindidkeit nicht mehr ausreicht erhöhe die Geschwindidkeit um 2. (Wandle einmal bremsen in einmal Beschleunigungen um)
+				//Wenn die langsame Geschwindidkeit nicht mehr ausreicht erhöhe die Geschwindidkeit um 2. (Wandle einmal bremsen in einmal Beschleunigungen um)
         if(geschwindigkeit_minimal<0)
         {
             geschwindigkeit_minimal+=2;
@@ -54,7 +54,7 @@ void Fahrradfahrer::ablaufen()
         }
     }
 	
-	// Wenn die Endgeschwindigkeit null ist, lässt sich die Strecke befahren.
+		// Wenn die Endgeschwindigkeit null ist, lässt sich die Strecke befahren.
     if(geschwindigkeit_minimal==0)
     {
         std::cout<<"Die Strecke lässt sich befahren. Man muss am Anfang "<<Beschleunigungen<<" mal Beschleunigungen."<<std::endl;
@@ -72,9 +72,9 @@ void Fahrradfahrer::fahren()
     int gelesen;
     int habe_beschleunigt=0;
     int Geschwindigkeit=0;
-	std::ofstream of("prot.txt");
+		std::ofstream of("prot.txt");
 	
-	// Strecke befahren, für jeden geraden Streckenabschnitt + oder - ausgeben
+		// Strecke befahren, für jeden geraden Streckenabschnitt + oder - ausgeben
     while((gelesen=fread(&Streckenabschnitt,1,1,Strecke))==1)
     {
         if(Streckenabschnitt=='_')
@@ -83,12 +83,12 @@ void Fahrradfahrer::fahren()
             {
                 Geschwindigkeit++;
                 habe_beschleunigt++;
-				of<<"+";
+								of<<"+";
             }
             else
             {
                 Geschwindigkeit--;
-				of<<"-";
+								of<<"-";
             }
         }
         else if(Streckenabschnitt=='\\')
@@ -100,7 +100,7 @@ void Fahrradfahrer::fahren()
             Geschwindigkeit--;
         }
     }
-	of.close();
+		of.close();
     std::cout<<"Endgeschwindigkeit : "<<Geschwindigkeit<<std::endl;
 }
 
