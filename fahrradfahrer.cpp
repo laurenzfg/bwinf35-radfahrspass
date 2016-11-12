@@ -57,7 +57,7 @@ void Fahrradfahrer::ablaufen()
 		// Wenn die Endgeschwindigkeit null ist, lässt sich die Strecke befahren.
     if(geschwindigkeit_minimal==0)
     {
-        std::cout<<"Die Strecke lässt sich befahren. Man muss am Anfang "<<Beschleunigungen<<" mal Beschleunigungen."<<std::endl;
+        std::cout<<"Die Strecke lässt sich befahren. Man muss am Anfang "<<Beschleunigungen<<" mal beschleunigen."<<std::endl;
     }
     else
     {
